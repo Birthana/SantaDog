@@ -6,7 +6,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    //public bool isGame;
+    public bool isGame;
     public float currentTime;
 
     // Start is called before the first frame update
@@ -17,16 +17,35 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        currentTime -= Time.deltaTime;
-        if (currentTime < 0)
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "SantaDog")
         {
-            currentTime = 0.0f;
-            //isGame = false;
-            SceneManager.LoadScene(2);
+            isGame = true;
+            this.gameObject.SetActive(true);
+            //score = 0f;
         }
-        this.GetComponent<TextMeshProUGUI>().text = "" + string.Format("{0:0.0}", currentTime);
+        else if (currentSceneName == "GameOver")
+        {
+            isGame = false;
+            this.gameObject.SetActive(false);
+        }
+
+        if (isGame)
+        {
+            currentTime -= Time.deltaTime;
+            if (currentTime < 0)
+            {
+                currentTime = 0.0f;
+                //isGame = false;
+                SceneManager.LoadScene(2);
+            }
+            //this.GetComponent<TextMeshProUGUI>().text = "" + string.Format("{0:0.0}", currentTime);
+            GameObject timerBar = GameObject.FindGameObjectWithTag("HealthBar");
+            timerBar.GetComponent<HealthBar>().SetPercentage(currentTime, 20);
+        }
     }
+    
 
     public void increaseTimer(float moreTime)
     {

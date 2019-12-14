@@ -41,6 +41,14 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(1);
+        GameObject temp = GameObject.FindGameObjectWithTag("UI");
+        if (temp != null)
+        {
+            temp.transform.GetChild(0).gameObject.SetActive(true);
+            temp.transform.GetChild(1).gameObject.SetActive(true);
+            temp.GetComponentInChildren<Timer>().currentTime = 20.0f;
+            temp.GetComponentInChildren<Score>().ResetScore();
+        }
     }
 
     public void Credits()

@@ -8,6 +8,8 @@ TagManager:
   - Timer
   - UI
   - Score
+  - HealthBar
+  - ScoreGameOver
   layers:
   - Default
   - TransparentFX

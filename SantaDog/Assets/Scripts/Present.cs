@@ -15,7 +15,7 @@ public class Present : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.y < -6)
+        if (this.transform.position.y < -8)
         {
             Destroy(this.gameObject);
         }
@@ -26,7 +26,7 @@ public class Present : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("DropZone"))
         {
-            GameObject timer = GameObject.FindGameObjectWithTag("Timer");
+            GameObject timer = GameObject.FindGameObjectWithTag("HealthBar");
             timer.GetComponent<Timer>().increaseTimer(3.0f);
             Destroy(this.gameObject);
         }

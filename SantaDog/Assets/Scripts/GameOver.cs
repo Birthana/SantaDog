@@ -23,16 +23,13 @@ public class GameOver : MonoBehaviour
 
     public void Replay()
     {
-        //GameObject temp = GameObject.FindGameObjectWithTag("UI");
-        //temp.SetActive(true);
-        //temp = GameObject.FindGameObjectWithTag("Timer");
-        //temp.SetActive(true);
-        //temp.GetComponent<Timer>().currentTime = 20.0f;
-        //temp.GetComponent<Timer>().isGame = true;
-        //temp = GameObject.FindGameObjectWithTag("Score");
-        //emp.SetActive(true);
-        //temp.GetComponent<Timer>().currentTime = 0.0f ;
-        //temp.GetComponent<Timer>().isGame = true;
+        GameObject temp = GameObject.FindGameObjectWithTag("ScoreGameOver");
+        //temp.GetComponent<Score>().ResetScore();
+        temp = GameObject.FindGameObjectWithTag("UI");
+        temp.transform.GetChild(0).gameObject.SetActive(true);
+        temp.transform.GetChild(1).gameObject.SetActive(true);
+        temp.GetComponentInChildren<Timer>().currentTime = 20.0f;
+        temp.GetComponentInChildren<Score>().ResetScore();
         SceneManager.LoadScene(1);
     }
 

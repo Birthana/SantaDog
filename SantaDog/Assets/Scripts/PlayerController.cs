@@ -26,9 +26,9 @@ public class PlayerController: MonoBehaviour
         tempVect = tempVect.normalized * speed * Time.deltaTime;
         rb.MovePosition(rb.position + tempVect * speed);
 
-        if (this.transform.position.y < -1)
+        if (this.transform.position.y < -2)
         {
-            this.transform.position = new Vector3(this.transform.position.x, -1, 0);
+            this.transform.position = new Vector3(this.transform.position.x, -2, 0);
         }
 
         if (Input.GetKey(KeyCode.Space) && !onCooldown)

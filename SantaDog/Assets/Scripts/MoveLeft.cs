@@ -16,7 +16,7 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x < -12)
+        if (this.transform.position.x < -16)
         {
             Destroy(this.gameObject);
         }
@@ -27,7 +27,7 @@ public class MoveLeft : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.transform.position = new Vector3(-6, 0, 0);
+            collision.gameObject.transform.position = new Vector3(-8, 0, 0);
             //GameObject temp = GameObject.FindGameObjectWithTag("UI");
             //temp.SetActive(false);
             SceneManager.LoadScene(2);

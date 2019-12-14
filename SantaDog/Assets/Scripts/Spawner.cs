@@ -9,8 +9,8 @@ public class Spawner : MonoBehaviour
     public bool onObtacleCooldown;
     public float obtacleCooldown;
 
-    public GameObject chimney;
-    public GameObject obtacle;
+    public GameObject[] chimneys;
+    public GameObject[] obtacles;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnChimney()
     {
         onChimneyCooldown = true;
-        GameObject tempObject = Instantiate(chimney, new Vector3(12, -5.2f, 0), Quaternion.identity);
+        GameObject tempObject = Instantiate(chimneys[Random.Range(0, chimneys.Length)], new Vector3(14.5f, -6.75f, 0), Quaternion.identity);
         yield return new WaitForSeconds(chimneyCooldown);
         onChimneyCooldown = false;
     }
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnObtacle()
     {
         onObtacleCooldown = true;
-        GameObject tempObject = Instantiate(obtacle, new Vector3(12, Random.Range(0, 6) - 1, 0), Quaternion.identity);
+        GameObject tempObject = Instantiate(obtacles[Random.Range(0, obtacles.Length)], new Vector3(14.5f, Random.Range(0, 7) - 2, 0), Quaternion.identity);
         yield return new WaitForSeconds(obtacleCooldown);
         onObtacleCooldown = false;
     }
