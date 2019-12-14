@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8eef945607e8dd2459dd48ba2a7f20af
+  - enabled: 1
+    path: Assets/Scenes/SantaDog.unity
+    guid: 496be1cc8195b4b4087ad74870d6e9e5
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: b583fb5bb525fcf4aa33e68bef89dd1f
   m_configObjects: {}

@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject video;
+
     public GameObject playButton;
     public GameObject creditsButton;
     public GameObject quitButton;
@@ -15,6 +18,13 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("OpeningCutscene");
+    }
+
+    IEnumerator OpeningCutscene()
+    {
+        yield return new WaitForSeconds(4.0f);
+        video.SetActive(false);
         playButton.SetActive(true);
         creditsButton.SetActive(true);
         quitButton.SetActive(true);
@@ -30,7 +40,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        
+        SceneManager.LoadScene(1);
     }
 
     public void Credits()
